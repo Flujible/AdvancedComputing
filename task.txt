@@ -1,0 +1,15 @@
+ - Determine the number of flights from each airport, include a list of any airports not used.
+   This will only need one file
+
+ - Calculate the number of passengers on each flight.
+   This will only need one file
+
+ - Create a list of flights based on the Flight id, this output should include the passenger Id, relevant IATA/FAA codes, the departure time, the arrival time (times to be converted to HH:MM:SS format), and the flight times.
+   This will only need one file
+
+ - Calculate the line-of-sight (nautical) miles for each flight and the total travelled by each passenger
+   This will need 2 files
+
+For this task in the development process, develop a non-MapReduce executable prototype, (in Java, C, or C++). The objective is to develop the basic functional ‘building-blocks’ that will support the development objectives listed above, in a way that mimics something of the operation of the MapReduce/Hadoop framework. The solution may use multi-threading if this suits your particular design and implementation strategy, the marking strategy will reflect the appropriate use of: coding techniques, succinct standard or Javadoc comments (only where really needed), data structures & overall program design. The code should be subject to command line version control using a Subversion repository under your university username.
+
+The final results/output must use the AComp_Passenger_data.csv file. Error detection and handling for this task can be quite basic, but it must be robust and follow a logical, well considered strategy – the latter is entirely for you to decide.
