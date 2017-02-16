@@ -1,17 +1,18 @@
-"""This code represents what we want the mapper to do to each line of the input file"""
+"""Defines the tasks for the mapper and the reducer to perform on the data file"""
+import KeyValuePair
 
-
-def mapper(inputLine, output):
-    inputLine = inputLine.split(",")
+def mapper(inputLine):
+    inputLine = inputLine.split(" ")
+    kvPairs = []
     for word in inputLine:
-        output.key = word
-        output.value = 1
+        pair = KeyValuePair(word.word, 1)
+        kvPairs.append(pair)
+    return kvPairs
 
-
-# I dont understand how this is supposed to work, it somewhat mimics the wordcount hadoop example
+# The reducer itterates over KVPairs where the key is teh same, then moves onto the next set of keys
 def reducer(kVPairs, output):
     cnt = 0
     for pair in kVPairs:
-        cnt+= pair.value
+        cnt += pair.value
     output.setKey(kVPairs.key)
     output.setValue(cnt)
