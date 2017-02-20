@@ -8,9 +8,15 @@ class Mapper:
         print(":: Default mapper - custom mapper not configured")
 
     def run(self, inputFile):
-        #Split the file into lines, and then execute the mapper function on each line#
+        # Split the file into lines, and then execute the mapper function on each line#
         # lines = inputFile.read().split("\n")
-        return [ self.mapper(line) for line in inputFile.read().split("\n") if line ]
+        mapped = [ self.mapper(line) for line in inputFile.read().lower().split("\n") if line ]
+        for line in mapped:
+            if line == mapped[0]:
+                continue
+            mapped[0] = mapped[0] + line
+            result = mapped[0]
+        return result
         # inputFile = inputFile.read()
         # print(":: InputFile: " + inputFile)
         # lines = inputFile.split("\n")
