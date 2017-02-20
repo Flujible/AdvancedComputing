@@ -31,12 +31,11 @@ class MyReducer(Reducer):
         Reducer.__init__(self)
 
     # The reducer itterates over KVPairs where the key is teh same, then moves onto the next set of keys
-    def reducer(self, kVPairs):
+    def reducer(self, kvPairs):
         cnt = 0
-        for pair in kVPairs:
+        for pair in kvPairs:
             cnt += pair.value
-
-        output = KVPair(kVPairs.key, cnt)
+        output = KVPair(kvPairs.key, cnt)
         return output
 
 myMapper = MyMapper()
@@ -48,7 +47,11 @@ if inputFile:
 else:
     print(":: Could not open file")
 
-results = myMapper.run(inputFile)
+mapResults = myMapper.run(inputFile)
+redResults = myReducer.run(mapResults)
 
-for result in results[0]:
-    print(result.key + ": " + str(result.value))
+print(":::::::::::::::::")
+print(str(mapResults))
+print(":::::::::::::::::")
+# for mapResult in mapResults:
+#     print(":: " + mapResult.key + ": " + str(mapResult.value))
