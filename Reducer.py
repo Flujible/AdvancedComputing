@@ -1,4 +1,6 @@
 """Defines the parent reducer class, which executes a user defined function on the output of the mapper"""
+import json
+from KVPair import KVPair
 
 class Reducer:
     def __init__(self):
@@ -6,6 +8,13 @@ class Reducer:
 
     def reducer(self, kvPair):
         print(":: Default reducer - custom reducer not configured")
+
+    def setRedFunction(self, function):
+        self.reducer = function
+
+    # Not sure if this is needed
+    def setOutputFile(self, outputFile):
+        self.outputFile = outputFile
 
     def run(self, kvPairs):
         reducedPairs = []
@@ -24,9 +33,10 @@ class Reducer:
                 elif pairs.key == comPairs.key and comPairs.reduced == True:
                     continue
             # print(":: '" + pairs.key + "' found " + str(len(matchingPairs)) + " times")
-            reducedPairs.append(self.reducer(matchingPairs))
-        result = open("result.json", 'w')
-        result.write("{\n")
-        for pair in reducedPairs:
-            result.write('    "' + str(pair.key) + '": ' + str(pair.value) + ",\n")
-        result.write("}")
+            reducedPairs.append(self.reducer(self, matchingPairs))
+        #result = open("result.json", 'w')
+        # result.write("{\n")
+        # for pair in reducedPairs[:-1]:
+        #     result.write('    "' + str(pair.key) + '": ' + str(pair.value) + ",\n")
+        # result.write('    "' + str(pair.key) + '": ' + str(pair.value) + "\n")
+        # result.write("}")
