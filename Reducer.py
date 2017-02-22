@@ -23,7 +23,7 @@ class Reducer:
                     comPairs.reduced = True
                 elif pairs.key == comPairs.key and comPairs.reduced == True:
                     continue
-            print(":: '" + pairs.key + "' found " + str(len(matchingPairs)) + " times")
+            # print(":: '" + pairs.key + "' found " + str(len(matchingPairs)) + " times")
             reducedPairs.append(self.reducer(matchingPairs))
         result = open("result.json", 'w')
         result.write("{\n")
