@@ -12,15 +12,17 @@ class MyMapper(Mapper):
     # The mapper class takes a file and performs the below function on each line of that file
     def mapper(self, inputLine):
         inputLine = inputLine.split(" ")
+        newInput = []
         kvPairs = []
         for word in inputLine:
-            if "." in word or "," in word:
-                newWord = word.strip(string.punctuation)
-                inputLine.remove(word)
-                inputLine.append(newWord)
             if word == "":
-                inputLine.remove(word)
-        for word in inputLine:
+                continue
+            elif "." in word or "," in word:
+                newWord = word.strip(string.punctuation)
+                newInput.append(newWord)
+            else:
+                newInput.append(word)
+        for word in newInput:
             pair = KVPair(word, 1)
             kvPairs.append(pair)
         return kvPairs
@@ -35,7 +37,7 @@ class MyReducer(Reducer):
         cnt = 0
         for pair in kvPairs:
             cnt += pair.value
-        output = KVPair(kvPairs.key, cnt)
+        output = KVPair(kvPairs[0].key, cnt)
         return output
 
 myMapper = MyMapper()
@@ -50,8 +52,5 @@ else:
 mapResults = myMapper.run(inputFile)
 redResults = myReducer.run(mapResults)
 
-print(":::::::::::::::::")
-print(str(mapResults))
-print(":::::::::::::::::")
 # for mapResult in mapResults:
 #     print(":: " + mapResult.key + ": " + str(mapResult.value))
