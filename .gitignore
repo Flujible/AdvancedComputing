@@ -90,5 +90,5 @@ ENV/
 
 # Input and output files
 inputFiles/
-result.json
+results/
 task.txt
