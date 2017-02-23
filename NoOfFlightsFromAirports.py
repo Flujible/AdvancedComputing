@@ -44,14 +44,12 @@ def mapUsedAirports(self, inputLine):
     print(":: " + inputLine[2] + ", " + inputLine[1])
     return KVPair(inputLine[2], inputLine[1])
 
-def mapCombine(self, inputLine):
-    pass
+def mapMakePairs(self, inputLine):
+    inputLine = inputLine.split(",")
+    return KVPair(inputLine[0], inputLine[1])
 
 def redUnusedAirports(self, kvPairs):
-    data = []
-    for pair in kvPairs:
-        data.append(pair)
-    return data
+    return KVPair(kvPairs[0].key, "0")
 
 def redUsedAirports(self, kvPairs):
     flightCodes = []
