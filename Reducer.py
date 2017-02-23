@@ -1,13 +1,10 @@
-"""Defines the parent reducer class, which executes a user defined function on the output of the mapper"""
-import json
-from KVPair import KVPair
-
 class Reducer:
+    """Defines the parent reducer class, which executes a user defined function on the output of the mapper"""
+
     def __init__(self):
         self.kvPairs = []
-
-    def reducer(self, kvPair):
-        print(":: Default reducer - custom reducer not configured")
+        self.reducer = ""
+        self.outputFile = ""
 
     def setRedFunction(self, function):
         self.reducer = function

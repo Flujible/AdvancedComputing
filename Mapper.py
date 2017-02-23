@@ -1,13 +1,10 @@
-"""Defines the parent mapper class, which executes a user defined function on each line of an input file"""
-import json
 from KVPair import KVPair
 
 class Mapper:
+    """Defines the parent mapper class, which executes a user defined function on each line of an input file"""
     def __init__(self):
-        pass
-
-    def mapper(self, inputLine):
-        print(":: Default mapper - custom mapper not configured")
+        self.mapper = ""
+        self.inputFile = ""
 
     def setMapFunction(self, function):
         self.mapper = function

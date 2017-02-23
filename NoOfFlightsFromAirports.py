@@ -31,9 +31,8 @@ from KVPair import KVPair
     # output = KVPair(kvPairs[0].key, cnt)
     # return output
 
-"""Class to contain the functions needed to execute the task:  Determine the number of flights from each airport, include a list of any airports not used."""
-def __init__(self):
-    pass
+"""Class to contain the functions needed to execute the task:  Determine the number
+ of flights from each airport, include a list of any airports not used."""
 
 def mapUnusedAirports(self, inputLine):
     inputLine = inputLine.split(",")
