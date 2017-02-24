@@ -1,7 +1,7 @@
 from KVPair import KVPair
 
 class Mapper:
-    """Defines the parent mapper class, which executes a user defined function on each line of an input file"""
+    """Defines the mapper class, which executes a user defined function on each line of an input file"""
     def __init__(self):
         self.mapper = ""
         self.inputFile = ""
