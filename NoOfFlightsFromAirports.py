@@ -61,11 +61,12 @@ def redUnusedAirports(self, kvPairs):
     return KVPair(kvPairs[0].key, "0")
 
 def redUsedAirports(self, kvPairs):
-    flightCodes = []
-    for pair in kvPairs:
-        flightCodes.append(pair.value)
+    flightCodes = [ pair.value for pair in kvPairs ]
     print(":: Found " + str(len(set(flightCodes))) + " from " + kvPairs[0].key)
     return KVPair(kvPairs[0].key, str(len(set(flightCodes))))
 
-def redCombine(self, kvPairs):
-    pass
+def redCountFlights(self, kvPairs):
+    val = 0
+    for pairs in kvPairs:
+        val += int(pairs.value)
+    return KVPair(kvPairs[0].key, str(val))
