@@ -9,11 +9,10 @@ class Reducer:
     def setRedFunction(self, function):
         self.reducer = function
 
-    # Not sure if this is needed
     def setOutputFile(self, outputFile):
         self.outputFile = outputFile
 
-    def run(self, kvPairs):
+    def run(self, kvPairs, fileWriteMode):
         reducedPairs = []
         # Take each k/v pair and build a list of k/v pairs with the same key
         for pairs in kvPairs:
@@ -31,7 +30,7 @@ class Reducer:
                     continue
             reducedPairs.append(self.reducer(self, matchingPairs))
         print(reducedPairs)
-        result = open(self.outputFile, 'a')
+        result = open(self.outputFile, fileWriteMode)
         for pair in reducedPairs:
             result.write(str(pair.key) + ", " + str(pair.value) + "\n")
         result.close()
