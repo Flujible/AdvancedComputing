@@ -36,7 +36,11 @@ class Mapper:
             print(":: Found " + str(len(mapped)) + " lines")
             output = []
             for pair in mapped:
-                output.append(KVPair(pair.key, pair.value))
+                # print(type(pair))
+                if type(pair) == "<class 'KVPair.KVPair'>":
+                    output.append(KVPair(pair.key, pair.value))
+                else:
+                    print(":: Not a pair")
             return output
 
         # This is only needed if the user's mapper function returns an array of arrays

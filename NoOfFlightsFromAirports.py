@@ -1,4 +1,5 @@
 from KVPair import KVPair
+import re
 # AComp_Passenger_data column headers:
     # column[0] = Passenger ID
     # column[1] = Flight ID
@@ -36,13 +37,21 @@ from KVPair import KVPair
 
 def mapUnusedAirports(self, inputLine):
     inputLine = inputLine.split(",")
-    print(":: Airport code: " + inputLine[1])
-    return KVPair(inputLine[1], "0")
+    if re.match("[a-zA-Z]{3}[1-9]{4}[a-zA-Z]{1}", inputLine[1]):
+        print(":: Airport code: " + inputLine[1])
+        return KVPair(inputLine[1], "0")
+    else:
+        print(":: Invalid Flight ID: " + inputLine[1])
+        return 0
 
 def mapUsedAirports(self, inputLine):
     inputLine = inputLine.split(",")
-    print(":: " + inputLine[2] + ", " + inputLine[1])
-    return KVPair(inputLine[2], inputLine[1])
+    if re.match("[a-zA-Z]{3}", inputLine[2]) and re.match("[a-zA-Z]{3}[1-9]{4}[a-zA-Z]{1}", inputLine[1]):
+        print(":: " + inputLine[2] + ", " + inputLine[1])
+        return KVPair(inputLine[2], inputLine[1])
+    else:
+        print(":: Invalid input: " + inputLine[2] + ", " + inputLine[1])
+        return 0
 
 def mapMakePairs(self, inputLine):
     inputLine = inputLine.split(",")
