@@ -37,16 +37,16 @@ import re
 
 def mapUnusedAirports(self, inputLine):
     inputLine = inputLine.split(",")
-    if re.match("[a-zA-Z]{3}[1-9]{4}[a-zA-Z]{1}", inputLine[1]):
+    if re.match("[a-zA-Z]{3}", inputLine[1]):
         print(":: Airport code: " + inputLine[1])
         return KVPair(inputLine[1], "0")
     else:
-        print(":: Invalid Flight ID: " + inputLine[1])
+        print(":: Invalid Airport Code: " + inputLine[1])
         return 0
 
 def mapUsedAirports(self, inputLine):
     inputLine = inputLine.split(",")
-    if re.match("[a-zA-Z]{3}", inputLine[2]) and re.match("[a-zA-Z]{3}[1-9]{4}[a-zA-Z]{1}", inputLine[1]):
+    if re.match("[a-zA-Z]{3}", inputLine[2]) and re.match("[a-zA-Z]{3}[0-9]{4}[a-zA-Z]{1}", inputLine[1]):
         print(":: " + inputLine[2] + ", " + inputLine[1])
         return KVPair(inputLine[2], inputLine[1])
     else:
