@@ -39,8 +39,8 @@ class Mapper:
                 # print(type(pair))
                 if str(type(pair)) == "<class 'KVPair.KVPair'>":
                     output.append(KVPair(pair.key, pair.value))
-                else:
-                    print(":: Not of class KVPair")
+                # else:
+                    # print(":: Not of class KVPair")
             return output
 
         # This is only needed if the user's mapper function returns an array of arrays
