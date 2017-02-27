@@ -8,9 +8,11 @@ def start():
     reducer = Reducer()
 
     # Produce a list of all the airports in a csv file with the headings 'Airport Code', and 'Null'
-    mapper.setInputFile("./inputFiles/AComp_Passenger_data.csv")
+    mapper.setInputFile("./inputFiles/PassengerData.csv")
     mapper.setMapFunction(PassengersOnEachFlightUserCode.mapPassengerToFlight)
     reducer.setRedFunction(PassengersOnEachFlightUserCode.redCountPassengers)
     reducer.setOutputFile("./results/NumberOfPassengersOnEachFlight.csv")
     noPassengers = mapper.run()
     reducer.run(noPassengers, 'w')
+
+    print(":: Task 2 complete")

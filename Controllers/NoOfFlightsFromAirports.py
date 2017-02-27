@@ -16,7 +16,7 @@ def start():
     reducer.run(unusedAirports, 'w')
 
     # Produce a list of all the airports used in the passenger data file in a csv file with the headings 'Airport Code', and 'Number of flights from that airport'
-    mapper.setInputFile("./inputFiles/AComp_Passenger_data_no_error_DateTime.csv")
+    mapper.setInputFile("./inputFiles/PassengerData.csv")
     mapper.setMapFunction(NoOfFlightsFromAirportsUserCode.mapUsedAirports)
     reducer.setRedFunction(NoOfFlightsFromAirportsUserCode.redUsedAirports)
     usedAirports = mapper.run()
