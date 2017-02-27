@@ -12,22 +12,22 @@ def stripErrors(inputLine):
     inputCopy = inputLine
     words = inputLine.split(",")
     if not re.match("[a-zA-Z]{3}[0-9]{4}[a-zA-Z]{2}[0-9]{1}", words[0]):
-        print(":: Passenger ID incorrect")
+        # print(":: Passenger ID incorrect")
         return 0
     elif not re.match("[a-zA-Z]{3}[0-9]{4}[a-zA-Z]{1}", words[1]):
-        print(":: Flight ID incorrect")
+        # print(":: Flight ID incorrect")
         return 0
     elif not re.match("[a-zA-Z]{3}", words[2]):
-        print(":: source airport code incorrect")
+        # print(":: source airport code incorrect")
         return 0
     elif not re.match("[a-zA-Z]{3}", words[3]):
-        print(":: Destination airpot code incorrect")
+        # print(":: Destination airpot code incorrect")
         return 0
     elif not re.match("[0-9]{10}", words[4]):
-        print(":: Departure time incorrect")
+        # print(":: Departure time incorrect")
         return 0
     elif not re.match("[0-9]{1,4}", words[5]):
-        print(":: Total flight time incorrect")
+        # print(":: Total flight time incorrect")
         return 0
     else:
         return inputCopy

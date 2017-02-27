@@ -29,7 +29,7 @@ class Reducer:
                 elif pairs.key == comPairs.key and comPairs.reduced == True:
                     continue
             reducedPairs.append(self.reducer(self, matchingPairs))
-        print(reducedPairs)
+        # print(reducedPairs)
         result = open(self.outputFile, fileWriteMode)
         for pair in reducedPairs:
             result.write(str(pair.key) + ", " + str(pair.value) + "\n")

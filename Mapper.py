@@ -12,7 +12,7 @@ class Mapper:
     def setInputFile(self, inputFile):
         inFile = open(inputFile)
         if inFile:
-            print(":: File set successfully")
+            # print(":: File set successfully")
             self.inputFile = inputFile
             inFile.close()
         else:
@@ -28,12 +28,12 @@ class Mapper:
             return 0
         else:
             inFile = open(self.inputFile)
-            if inFile:
-                print(":: File opened successfully")
-            else:
+            if not inFile:
                 print(":: File could not be opened")
+            # else:
+                # print(":: File opened successfully")
             mapped = [ self.mapper(self, line) for line in inFile.read().lower().split("\n") if line ]
-            print(":: Found " + str(len(mapped)) + " lines")
+            # print(":: Found " + str(len(mapped)) + " lines")
             output = []
             for pair in mapped:
                 # print(type(pair))
