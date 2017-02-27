@@ -1,24 +1,14 @@
-# AComp_Passenger_data column headers:
-    # column[0] = Passenger ID (XXXnnnnXXn)
-    # column[1] = Flight ID (XXXnnnnX)
-    # column[2] = Dept. airport code (XXX)
-    # column[3] = Arr. airport code (XXX)
-    # column[4] = Departure time GMT (n [10] (This is using unix epoch time))
-    # column[5] = Total Flight time (mins) (n [1..4])
-
 """File to contain the functions needed to execute the task:  Create a list of
 flights based on the Flight id, this output should include the passenger Id,
 relevant IATA/FAA codes, the departure time, the arrival time (times to be
 converted to HH:MM:SS format), and the flight times."""
 
 from KVPair import KVPair
-from regex import stripErrors
 from datetime import datetime, timedelta
 
 def mapReOrder(self, inputLine):
-    if stripErrors(inputLine):
-        words = inputLine.split(",")
-        return KVPair(words[1], str(words[0] + "," + words[2] + "," + words[3] + "," + words[4] + "," + words[5]))
+    words = inputLine.split(",")
+    return KVPair(words[1], str(words[0] + "," + words[2] + "," + words[3] + "," + words[4] + "," + words[5]))
 
 def redCalcFlightInfo(self, kvPairs):
     #kvPair.value column headers:

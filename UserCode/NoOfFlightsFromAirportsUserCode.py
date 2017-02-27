@@ -2,21 +2,14 @@
  of flights from each airport, include a list of any airports not used."""
 
 from KVPair import KVPair
-from regex import stripErrors
 
 def mapUnusedAirports(self, inputLine):
-    if stripErrors(inputLine):
-        inputLine = inputLine.split(",")
-        return KVPair(inputLine[1], "0")
-    else:
-        return 0
+    inputLine = inputLine.split(",")
+    return KVPair(inputLine[1], "0")
 
 def mapUsedAirports(self, inputLine):
-    if stripErrors(inputLine):
-        inputLine = inputLine.split(",")
-        return KVPair(inputLine[2], inputLine[1])
-    else:
-        return 0
+    inputLine = inputLine.split(",")
+    return KVPair(inputLine[2], inputLine[1])
 
 def mapMakePairs(self, inputLine):
     inputLine = inputLine.split(",")
