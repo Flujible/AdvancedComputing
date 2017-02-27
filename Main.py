@@ -18,3 +18,7 @@ PassengersOnEachFlight.start()
 # passenger Id, relevant IATA/FAA codes, the departure time, the arrival time
 # (times to be converted to HH:MM:SS format), and the flight times.
 FlightInformation.start()
+
+# Calculate the line-of-sight (nautical) miles for each flight and the total
+# travelled by each passenger
+CalcDistance.start()
