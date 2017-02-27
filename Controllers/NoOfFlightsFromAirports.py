@@ -30,3 +30,5 @@ def start():
     allAirports = mapper.run()
     reducer.setRedFunction(NoOfFlightsFromAirportsUserCode.redCountFlights)
     reducer.run(allAirports, 'w')
+
+    print(":: Task 1 complete")
