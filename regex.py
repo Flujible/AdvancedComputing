@@ -1,6 +1,6 @@
 import re
 
-# AComp_Passenger_data column headers:
+# PassengerData column headers:
     # column[0] = Passenger ID (XXXnnnnXXn)
     # column[1] = Flight ID (XXXnnnnX)
     # column[2] = Dept. airport code (XXX)
