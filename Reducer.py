@@ -32,5 +32,5 @@ class Reducer:
         # print(reducedPairs)
         result = open(self.outputFile, fileWriteMode)
         for pair in reducedPairs:
-            result.write(str(pair.key) + ", " + str(pair.value) + "\n")
+            result.write(str(pair.key) + "," + str(pair.value) + "\n")
         result.close()
