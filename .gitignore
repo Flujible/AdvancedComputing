@@ -90,7 +90,6 @@ ENV/
 
 # Input and output files
 inputFiles/
-results/
 task.txt
 
 # Files for referencing
